@@ -22,7 +22,7 @@ It wrote the code, ran away, and now the game is unplayable.
 4. **Refactor & Test.** - Move the logic into `logic_utils.py`.
    - Run `pytest` in your terminal.
    - Keep fixing until all tests pass!
-   - ![Image](image-1.png)
+   - ![Image](assets/image-1.png)
 
 ## 📝 Document Your Experience
 
@@ -35,7 +35,7 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📸 Demo
 
-- [ ] ![Image](image.png)
+- [ ] ![Image](assets/image.png)
 
 ## 🚀 Stretch Features
 
