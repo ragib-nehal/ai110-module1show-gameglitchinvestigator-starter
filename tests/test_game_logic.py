@@ -72,8 +72,9 @@ def test_parse_guess_accepts_integer_string_with_spaces():
 
 def test_score_penalty_is_symmetric_for_misses():
     # BUG FIX #10 TEST: Miss penalties should be the same for high/low outcomes.
-    assert update_score(0, "Too High", 1) == -5
-    assert update_score(0, "Too Low", 2) == -5
+    # BUG FIX #15 TEST: Scores should not go below 0 (floor at 0).
+    assert update_score(0, "Too High", 1) == 0
+    assert update_score(0, "Too Low", 2) == 0
 
 
 def test_score_win_formula_without_extra_penalty():

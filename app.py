@@ -62,9 +62,11 @@ elif st.session_state.current_difficulty != difficulty:
 st.subheader("Make a guess")
 
 # BUG FIX #1: Use dynamic range variables instead of hardcoded 1-100, respecting difficulty selection
+attempts_remaining = attempt_limit - st.session_state.attempts
+attempt_word = "attempt" if attempts_remaining == 1 else "attempts"
 st.info(
     f"Guess a number between {low} and {high}. "
-    f"Attempts left: {attempt_limit - st.session_state.attempts}"
+    f"Attempts left: {attempts_remaining} {attempt_word}"
 )
 
 with st.expander("Developer Debug Info"):
@@ -147,7 +149,7 @@ if submit:
                     f"Final score: {st.session_state.score}"
                 )
             else:
-                if st.session_state.attempts >= attempt_limit:
+                if st.session_state.attempts > attempt_limit:
                     st.session_state.status = "lost"
                     st.error(
                         f"Out of attempts! "

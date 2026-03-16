@@ -22,16 +22,20 @@ It wrote the code, ran away, and now the game is unplayable.
 4. **Refactor & Test.** - Move the logic into `logic_utils.py`.
    - Run `pytest` in your terminal.
    - Keep fixing until all tests pass!
+   - ![alt text](image-1.png)
 
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+      - The purpose of this game is to guess a "secret" number given a range from a to b. The difficulty varies from easy to normal to hard, with more difficult levels increasing the range of numbers. Players start off with an intial number of attempts and the hard mode gives the least number of attempts. Each attempt, the player either guesses the number correctly and wins or he is given hints. These hints reveal whether the secret number is higher or lower than their current guess. 
 - [ ] Detail which bugs you found.
+      - There were many bug in this app. One of the major bugs was the secret number generation. Each interaction from the user reset the secret values, making the hints useless. Another issue was the failure to validate inputs. Hence, I was able to put values like -1 and 101, which are out of bounds even for the hard mode. There was another inconsistency with the allowed attempts for each level, which is unexpected behavior. 
 - [ ] Explain what fixes you applied.
+      - The first issue I mentioned regarding the secret number generation was due to the reruns from Streamlit which reset any state variables established. A simple fix to this was storing that random values inside of a state_session which preserved it in memory, making hints helpful. For the second bug I described, the fix was implemented in the parse_guess() function, validating numeric inputs and prevention out of bounds errors. For the allowed attempts on each level, i simply used a dictionary to map the values to each difficulty. 
 
 ## 📸 Demo
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
+- [ ] ![alt text](image.png)
 
 ## 🚀 Stretch Features
 
